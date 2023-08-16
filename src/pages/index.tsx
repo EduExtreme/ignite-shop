@@ -28,18 +28,19 @@ export default function Home({ products }: HomeProps) {
     <main className="keen-slider" ref={sliderRef}>
       {products.map((product) => {
         return (
-          <div
+          <a
+            href={`/product/${product.id}`}
             key={product.id}
             className="keen-slider__slide bg-gray-700 h-80 flex justify-center align-center rounded-xl border"
           >
             <img className="object-contain" alt="" src={product.imageUrl} />
-            <footer className="absolute bottom-1 left-1 right-1 rounded-md gap-4 bg-blue-600 p-8 flex rounded-xl border">
+            <footer className="absolute bottom-1 left-1 right-1 rounded-md gap-4 bg-blue-600 p-8 flex rounded-xl border-none">
               <strong className="text-lg text-white">{product.name}</strong>
               <span className="text-xl text-white font-medium">
                 R$ {product.price}
               </span>
             </footer>
-          </div>
+          </a>
         );
       })}
     </main>
